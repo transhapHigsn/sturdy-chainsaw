@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: caddy-demo
+  labels:
+    app: caddy-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: caddy-demo
+  template:
+    metadata:
+      labels:
+        app: caddy-demo
+    spec:
+      containers:
+      - name: caddy-demo
+        image: abiosoft/caddy:latest
+        ports:
+        - containerPort: 2015
